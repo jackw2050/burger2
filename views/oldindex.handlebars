@@ -1,0 +1,57 @@
+<h1>Eat-da-Burger!</h1>
+
+
+<img src="http://pngimg.com/upload/burger_sandwich_PNG4145.png" alt="Burger View" style="width:200px;height:150px; ">
+
+<form action="/create" method="POST">
+
+<textarea name="message" rows="4" cols="50">
+</textarea>
+<br>
+<input type="submit" value="Submit">
+<button type="submit">Add Burger</button>
+</form>
+<p id="message">Enter a burger you want to eat and click submit.</p>
+
+<div class="freshBurger">
+	<ul>
+  {{#each burger}}
+    {{#unless this.devoured}}
+      <div>
+        {{this.burger_name}}
+
+        <form action="burger/update/{{this.id}}?_method=POST" method="POST">
+          <input id="fresh" type="hidden" name="fresh" value="true">
+          <button class='devourButton' type="submit">Devour it!</button>
+        </form>
+
+     <div>
+    {{/unless}}
+  {{/each}}
+</ul>
+</div>
+
+
+
+<div class="burgerEaten">
+	
+
+
+<ul>
+  {{#each burger}}
+    {{#if this.devoured}}
+      <li>
+        {{this.burger_name}}
+
+        <form action="burger/update/{{this.id}}?_method=POST" method="POST">
+          <input type="hidden" name="sleepy" value="false">
+
+        </form>
+
+       
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>
+</div>
+

@@ -1,0 +1,67 @@
+<div class="container">
+  <div >
+    <h1 class="text-center">Eat-da-Burger!</h1>
+  </div>
+
+<div>
+  <img class="center-block" src="http://pngimg.com/upload/burger_sandwich_PNG4145.png" alt="Burger View" style="width:200px;height:150px; ">
+</div>
+
+<div class="form-group center_div">
+    <form action="burger/create" method="POST" class="navbar-form navbar-center create-update-form" > 
+    <div class="center_div">
+
+        <input type="text" class=" center-block input-lg" id="ca" name="burger_name" >
+        <button type="submit" class="devourButton btn btn-primary center-block">Add Burger</button>
+           </div>   
+    </form>
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+  <div class="well">
+    <h2>My burgers!</h2>
+    <ul>
+    {{#each burger}}
+      {{#unless this.devoured}}
+       <li>
+         {{this.burger_name}}
+
+         <form action="burger/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="true">
+          <button type="submit" class="btn-sm btn-primary ">Devour it!</button>
+          </form>
+       </li>
+      {{/unless}}
+    {{/each}}
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="col-md-6">
+  <div class="well">
+    <h2>Burgers eaten!</h2>
+    <ul>
+      {{#each burger}}
+        {{#if this.devoured}}
+        <li>
+        {{this.burger_name}}
+        <form action="burger/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="false">
+        </form>
+        </li>
+      {{/if}}
+    {{/each}}
+    </ul>
+  </div>
+</div>

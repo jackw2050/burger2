@@ -1,0 +1,27 @@
+#fresh {
+  
+  margin: 5px;
+  padding: 5px;
+  height: 20px;
+  width: 40px;
+}
+
+.label {
+  font-weight: bold;
+}
+#message{
+	margin: auto;
+.center_div{
+    margin: 0 auto;
+    width:80% /* value of your choice which suits your alignment */
+}
+
+body{
+	background-color: orange;
+}
+.well{
+	background-color: orange;
+}
+
+
+
